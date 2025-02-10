@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"main/app"
 
@@ -8,9 +9,16 @@ import (
 )
 
 func main() {
-	u := app.MakeUI()
+	a := app.MakeApp()
+
 	ebiten.SetWindowTitle("Nefer UI")
-	if err := ebiten.RunGame(u); err != nil {
+	ebiten.SetWindowResizingMode(ebiten.WindowResizingModeEnabled)
+	ebiten.SetWindowSize(ebiten.Monitor().Size())
+
+	result := app.ReadCsvFile("./data/data.csv")
+	fmt.Println(result)
+
+	if err := ebiten.RunGame(a); err != nil {
 		log.Fatal(err)
 	}
 }

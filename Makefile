@@ -6,6 +6,15 @@ VERSION?=0.0.1
 BUILD_DIR=releases
 MAIN_PATH=./cmd/
 
+PACKAGE=nefer-ui
+BUILD_DATE=$(shell date +%Y-%m-%d-%H:%M:%S)
+GIT_COMMIT=$(shell git rev-parse --short HEAD 2>/dev/null || echo "undefined")
+
+# Go build flags
+LDFLAGS=-ldflags "-X ${PACKAGE}/version.Version=${VERSION} -X ${PACKAGE}/version.BuildDate=${BUILD_DATE} -X ${PACKAGE}/version.GitCommit=${GIT_COMMIT}"
+
+.PHONY: all clean build build-all windows linux darwin proto
+
 all: build-all
 
 clean:
