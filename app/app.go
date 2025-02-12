@@ -5,17 +5,17 @@ import (
 	"main/assets"
 
 	"github.com/hajimehoshi/ebiten/v2"
-	"github.com/hajimehoshi/ebiten/v2/vector"
 	"github.com/temidaradev/esset/v2"
 )
 
 func init() {
 	assets.FontFace, _ = esset.GetFont(assets.TangerineRegular, 48)
+	assets.FontFaceV, _ = esset.GetFont(assets.PoppinsBlack, 24)
 }
 
 type App struct {
-	ui    *Ui
-	theme *DarkTheme
+	needle *Needle
+	theme  *DarkTheme
 }
 
 var (
@@ -24,16 +24,17 @@ var (
 )
 
 func MakeApp() *App {
-	u := &App{
-		ui: &Ui{},
-	}
+	u := &App{}
 
 	return u
 }
 
 func (a *App) Draw(screen *ebiten.Image) {
 	a.theme.SetTheme(screen, bkgColor)
-	vector.StrokeCircle(screen, 960, 900, 350, 10, color.Black, true)
+	DrawVectors(screen)
+
+	//a.needle.DrawNeedle(screen)
+	WriteData(screen)
 	esset.DrawText(screen, "Cahit", 48, float64(width)-150, float64(height)-150, assets.FontFace, color.White)
 }
 
