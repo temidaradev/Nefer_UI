@@ -17,5 +17,6 @@ var FontFace text.Face
 //go:embed fonts/Poppins-Black.ttf
 var PoppinsBlack []byte
 var FontFaceV text.Face
+var FontFaceH text.Face
 
 var Line = esset.GetAsset(Assets, "images/needle.png")
