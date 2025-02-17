@@ -18,5 +18,7 @@ var FontFace text.Face
 var PoppinsBlack []byte
 var FontFaceV text.Face
 var FontFaceH text.Face
+var FontFaceT text.Face
+var FontFaceS text.Face
 
 var Line = esset.GetAsset(Assets, "images/needle.png")
