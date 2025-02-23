@@ -15,8 +15,17 @@ func main() {
 	ebiten.SetWindowResizingMode(ebiten.WindowResizingModeEnabled)
 	ebiten.SetWindowSize(ebiten.Monitor().Size())
 
-	result := app.ReadCsvFile("./data/data.csv")
-	fmt.Println(result)
+	db := app.OpenDatabase()
+	defer db.Close()
+
+	data := app.ReadCsvFile("./data/data.csv")
+	app.InsertData(db, app.ParseData(data))
+
+	values := app.FindAll(db)
+
+	for _, song := range values {
+		fmt.Println(song)
+	}
 
 	if err := ebiten.RunGame(a); err != nil {
 		log.Fatal(err)

@@ -19,8 +19,7 @@ func init() {
 }
 
 type App struct {
-	needle *Needle
-	theme  *DarkTheme
+	theme *DarkTheme
 }
 
 var (
@@ -40,7 +39,6 @@ func (a *App) Draw(screen *ebiten.Image) {
 	th := time.Now()
 	tf := th.Format("2006-01-02\n15:04:05.000")
 
-	//a.needle.DrawNeedle(screen)
 	WriteData(screen)
 	esset.DrawText(screen, "Team Nefer", 48, float64(width)/2-90, float64(height)/2-450, assets.FontFace, color.White)
 	esset.DrawText(screen, "Cahit", 48, float64(width)-150, float64(height)-150, assets.FontFace, color.White)

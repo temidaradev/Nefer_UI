@@ -1,6 +1,9 @@
 run:
 	@go run cmd/main.go
 
+server:
+	@go run server/main.go
+
 BINARY_NAME=Nefer_UI
 VERSION?=0.0.1
 BUILD_DIR=releases
