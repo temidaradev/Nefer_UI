@@ -61,21 +61,6 @@
         <mxCell id="h8T194Efh5mGNADr7rTE-14" value="Write The Data On Screen" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="340" y="450" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="h8T194Efh5mGNADr7rTE-17" value="" style="curved=1;endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="340" y="480" as="sourcePoint" />
-            <mxPoint x="120" y="100" as="targetPoint" />
-            <Array as="points">
-              <mxPoint x="70" y="380" />
-              <mxPoint x="40" y="220" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="h8T194Efh5mGNADr7rTE-18" value="If Session Finished" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="h8T194Efh5mGNADr7rTE-17">
-          <mxGeometry x="-0.181" y="-7" relative="1" as="geometry">
-            <mxPoint x="-1" as="offset" />
-          </mxGeometry>
-        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
