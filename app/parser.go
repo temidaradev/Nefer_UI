@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"encoding/csv"
 	"fmt"
+	"io"
 	"log"
 	"os"
 	"strconv"
@@ -41,7 +42,43 @@ func ReadCsvFile(filePath string) [][]string {
 		fields[name] = i
 	}
 
+	if err == io.EOF {
+		fmt.Println("niga")
+	}
+
 	return records[1:]
+
+}
+
+func ParseCsv(filepath string) ([][]string, []string) {
+
+	file, err := os.Open(filepath)
+
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	defer file.Close()
+
+	reader := csv.NewReader(file)
+
+	var records [][]string
+	for {
+
+		record, err := reader.Read()
+		// if we've reached the end of the file, break
+		if err == io.EOF {
+			break
+		}
+
+		if err != nil {
+			fmt.Println(err)
+		}
+
+		records = append(records, record)
+	}
+
+	return records[1:], records[0]
 
 }
 

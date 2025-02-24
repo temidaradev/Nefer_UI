@@ -42,10 +42,9 @@ func (a *App) Draw(screen *ebiten.Image) {
 	db := OpenDatabase()
 	defer db.Close()
 
+	values := FindAll(db)
 	data := ReadCsvFile("./data/data.csv")
 	InsertData(db, ParseData(data))
-
-	values := FindAll(db)
 
 	for _, song := range values {
 		fmt.Println(song)
