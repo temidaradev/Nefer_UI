@@ -39,16 +39,16 @@ func (a *App) Draw(screen *ebiten.Image) {
 	th := time.Now()
 	tf := th.Format("2006-01-02\n15:04:05.000")
 
-	db := OpenDatabase()
-	defer db.Close()
+	// db := OpenDatabase()
+	// defer db.Close()
 
-	values := FindAll(db)
-	data := ReadCsvFile("./data/data.csv")
-	InsertData(db, ParseData(data))
+	// values := FindAll(db)
+	// data := ReadCsvFile("./data/data.csv")
+	// InsertData(db, ParseData(data))
 
-	for _, song := range values {
-		fmt.Println(song)
-	}
+	// for _, song := range values {
+	// 	fmt.Println(song)
+	// }
 
 	WriteData(screen)
 	esset.DrawText(screen, "Team Nefer", 48, float64(width)/2-90, float64(height)/2-450, assets.FontFace, color.White)
