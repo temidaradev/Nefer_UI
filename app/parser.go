@@ -43,7 +43,7 @@ func ReadCsvFile(filePath string) [][]string {
 	}
 
 	if err == io.EOF {
-		fmt.Println("niga")
+		fmt.Println("End Of File")
 	}
 
 	return records[1:]
