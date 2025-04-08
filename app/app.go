@@ -1,9 +1,12 @@
 package app
 
 import (
+	"crypto/rand"
+	"encoding/base64"
 	"fmt"
 	"image/color"
 	"main/assets"
+	"strings"
 	"time"
 
 	"github.com/hajimehoshi/ebiten/v2"
@@ -31,6 +34,25 @@ func MakeApp() *App {
 	u := &App{}
 
 	return u
+}
+func genRandForSession(byteLength int) (string, error) {
+	// Create a byte slice to store the random bytes
+	randomBytes := make([]byte, byteLength)
+
+	// Read random bytes from crypto/rand
+	_, err := rand.Read(randomBytes)
+	if err != nil {
+		return "", fmt.Errorf("failed to generate random bytes: %w", err)
+	}
+
+	// Encode the random bytes to base64
+	// Use URL-safe encoding to avoid characters that might cause issues in filenames
+	encodedString := base64.URLEncoding.EncodeToString(randomBytes)
+
+	// Remove any padding characters (=)
+	encodedString = strings.ReplaceAll(encodedString, "=", "")
+
+	return encodedString, nil
 }
 
 func (a *App) Draw(screen *ebiten.Image) {
